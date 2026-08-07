@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>AJ Splash Screen</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* ==========================
+   RESET
+========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html,
+body{
+
+width:100%;
+height:100%;
+overflow:hidden;
+background:#090611;
+
+}
+
+/* ==========================
+BACKGROUND
+========================== */
+
+body{
+
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+
+background:
+linear-gradient(
+180deg,
+#090611 0%,
+#120824 40%,
+#1A1035 100%
+);
+
+}
+
+/* ==========================
+GALAXY
+========================== */
+
+.galaxy{
+
+position:absolute;
+inset:0;
+
+overflow:hidden;
+
+z-index:1;
+
+}
+
+/* ==========================
+NEBULA
+========================== */
+
+.nebula{
+
+position:absolute;
+
+width:900px;
+height:900px;
+
+border-radius:50%;
+
+filter:blur(120px);
+
+opacity:.35;
+
+mix-blend-mode:screen;
+
+}
+
+.nebula.one{
+
+background:#8f5cff;
+
+top:-250px;
+left:-250px;
+
+}
+
+.nebula.two{
+
+background:#6f3cff;
+
+bottom:-300px;
+right:-250px;
+
+}
+
+.nebula.three{
+
+background:#bc63ff;
+
+left:50%;
+top:45%;
+
+transform:translate(-50%,-50%);
+
+opacity:.18;
+
+}
+
+/* ==========================
+PARTICLES
+========================== */
+
+#particles{
+
+position:absolute;
+inset:0;
+
+z-index:2;
+
+}
+
+/* ==========================
+SHOOTING STARS
+========================== */
+
+#shooting-stars{
+
+position:absolute;
+
+inset:0;
+
+z-index:3;
+
+pointer-events:none;
+
+}
+
+/* ==========================
+ENERGY RING
+========================== */
+
+.energy-ring{
+
+position:absolute;
+
+width:470px;
+height:470px;
+
+border-radius:50%;
+
+border:2px solid
+rgba(180,120,255,.18);
+
+z-index:5;
+
+}
+
+/* ==========================
+LOGO SECTION
+========================== */
+
+.hero{
+
+position:relative;
+
+z-index:20;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+flex-direction:column;
+
+}
+
+/* logo */
+
+.logo-wrapper{
+
+position:relative;
+
+width:320px;
+height:320px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+/* logo image */
+
+.logo{
+
+width:100%;
+
+user-select:none;
+
+pointer-events:none;
+
+}
+
+/* rotating ring */
+
+.rotate-ring{
+
+position:absolute;
+
+width:420px;
+height:420px;
+
+border-radius:50%;
+
+border:
+
+2px solid
+rgba(180,100,255,.15);
+
+}
+
+/* glow */
+
+.logo-glow{
+
+position:absolute;
+
+width:340px;
+height:340px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(
+
+circle,
+
+rgba(180,100,255,.55),
+
+transparent 70%
+
+);
+
+filter:blur(45px);
+
+}
+
+/* light sweep */
+
+.sweep{
+
+position:absolute;
+
+width:90px;
+height:360px;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.65),
+
+transparent
+
+);
+
+transform:
+
+rotate(18deg);
+
+opacity:0;
+
+}
+
+/* ==========================
+TITLE
+========================== */
+
+.title{
+
+margin-top:45px;
+
+font-size:42px;
+
+font-weight:700;
+
+color:white;
+
+letter-spacing:3px;
+
+}
+
+.subtitle{
+
+margin-top:12px;
+
+font-size:17px;
+
+color:#cb9cff;
+
+letter-spacing:5px;
+
+}
+
+/* ==========================
+LOADING BAR
+========================== */
+
+.loading{
+
+margin-top:55px;
+
+width:260px;
+height:7px;
+
+border-radius:100px;
+
+background:
+
+rgba(255,255,255,.08);
+
+overflow:hidden;
+
+backdrop-filter:blur(20px);
+
+}
+
+.progress{
+
+width:0%;
+
+height:100%;
+
+border-radius:100px;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+#7c3dff,
+
+#b56dff,
+
+#ff9dff
+
+);
+
+}
+
+/* ==========================
+LOADING TEXT
+========================== */
+
+.loading-text{
+
+margin-top:18px;
+
+font-size:14px;
+
+color:#d5b7ff;
+
+letter-spacing:4px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- GALAXY -->
+
+<div class="galaxy">
+
+<div class="nebula one"></div>
+
+<div class="nebula two"></div>
+
+<div class="nebula three"></div>
+
+<div id="particles"></div>
+
+<div id="shooting-stars"></div>
+
+</div>
+
+<!-- HERO -->
+
+<div class="hero">
+
+<div class="energy-ring"></div>
+
+<div class="logo-wrapper">
+
+<div class="logo-glow"></div>
+
+<div class="rotate-ring"></div>
+
+<div class="sweep"></div>
+
+<img
+src="images/logo.png"
+class="logo"
+alt="AJ Logo">
+
+</div>
+
+<h1 class="title">
+
+ANNALYN JEAN
+
+</h1>
+
+<p class="subtitle">
+
+FULL-STACK DEVELOPER
+
+</p>
+
+<div class="loading">
+
+<div class="progress"></div>
+
+</div>
+
+<div class="loading-text">
+
+INITIALIZING SYSTEM...
+
+</div>
+
+</div>
+
+<script>
+
+/*
+
+PART 3
+
+Particles
+
+Galaxy
+
+Animations
+
+Loading
+
+Auto Redirect
+
+*/
+
+</script>
+
+</body>
+
+</html>
